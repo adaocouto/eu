@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adão L. L. Couto | Apresentação Acadêmica</title>
+  <meta name="description" content="Apresentação acadêmica e profissional de Adão L. L. Couto, médico pediatra, professor universitário e desenvolvedor de ferramentas digitais para educação médica." />
+  <meta name="author" content="Adão L. L. Couto" />
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg2: #0f172a;
+      --panel: rgba(15, 23, 42, 0.82);
+      --panel2: rgba(30, 41, 59, 0.78);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --soft: #94a3b8;
+      --line: rgba(255,255,255,.14);
+      --blue: #38bdf8;
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --purple: #a78bfa;
+      --danger: #fb7185;
+      --shadow: 0 28px 80px rgba(0,0,0,.42);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(56,189,248,.24), transparent 34%),
+        radial-gradient(circle at 88% 18%, rgba(167,139,250,.18), transparent 30%),
+        radial-gradient(circle at 75% 92%, rgba(34,197,94,.15), transparent 32%),
+        linear-gradient(135deg, var(--bg), var(--bg2));
+      overflow: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .deck {
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      padding: clamp(28px, 5vw, 70px);
+      animation: enter .45s ease both;
+    }
+
+    .slide.active { display: grid; }
+
+    @keyframes enter {
+      from { opacity: 0; transform: translateY(18px) scale(.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .stage {
+      width: min(1180px, 100%);
+      margin: auto;
+      display: grid;
+      gap: 28px;
+    }
+
+    .two-cols {
+      grid-template-columns: 1.08fr .92fr;
+      align-items: center;
+    }
+
+    .center { text-align: center; place-items: center; }
+
+    .kicker {
+      display: inline-flex;
+      width: fit-content;
+      gap: 10px;
+      align-items: center;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.07);
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: .02em;
+      font-size: .9rem;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(3.1rem, 8vw, 7.8rem);
+      line-height: .86;
+      letter-spacing: -.085em;
+      margin-bottom: 24px;
+      max-width: 980px;
+    }
+
+    h1 span, h2 span { color: var(--blue); }
+
+    h2 {
+      font-size: clamp(2.3rem, 5vw, 5rem);
+      line-height: .92;
+      letter-spacing: -.07em;
+      margin-bottom: 20px;
+      max-width: 980px;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      letter-spacing: -.03em;
+      margin-bottom: 8px;
+    }
+
+    p, li { color: var(--muted); font-size: clamp(1.02rem, 1.5vw, 1.2rem); line-height: 1.62; }
+
+    .lead { font-size: clamp(1.2rem, 2vw, 1.55rem); max-width: 880px; }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.055));
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      padding: clamp(24px, 4vw, 42px);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .portrait {
+      width: 176px;
+      height: 176px;
+      border-radius: 42px;
+      display: grid;
+      place-items: center;
+      font-size: 4.7rem;
+      background: linear-gradient(135deg, var(--blue), #2563eb 55%, var(--green));
+      box-shadow: 0 20px 60px rgba(56,189,248,.28);
+      margin-bottom: 24px;
+    }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+
+    .chip {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.075);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-weight: 700;
+      font-size: .92rem;
+    }
+
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .cards.two { grid-template-columns: repeat(2, 1fr); }
+
+    .card {
+      min-height: 190px;
+      padding: 25px;
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background: var(--panel2);
+      box-shadow: 0 16px 40px rgba(0,0,0,.22);
+    }
+
+    .icon { font-size: 2rem; margin-bottom: 16px; }
+
+    .timeline { display: grid; gap: 14px; }
+
+    .item {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 19px 21px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(15,23,42,.62);
+    }
+
+    .year {
+      color: var(--blue);
+      font-weight: 900;
+      letter-spacing: -.02em;
+    }
+
+    .note {
+      border-left: 4px solid var(--amber);
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(245,158,11,.10);
+      color: var(--muted);
+      margin-top: 18px;
+    }
+
+    .links { display: grid; gap: 13px; }
+
+    .link-card {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      padding: 17px 19px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.075);
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .link-card small { color: var(--soft); font-weight: 700; }
+    .link-card:hover { transform: translateY(-2px); border-color: rgba(56,189,248,.7); background: rgba(56,189,248,.11); }
+
+    .nav {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(15,23,42,.72);
+      backdrop-filter: blur(14px);
+      z-index: 50;
+    }
+
+    button {
+      border: none;
+      color: var(--text);
+      background: rgba(255,255,255,.10);
+      border: 1px solid var(--line);
+      padding: 9px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+
+    button:hover { background: rgba(56,189,248,.18); }
+
+    .dots { display: flex; gap: 7px; padding: 0 4px; }
+    .dot { width: 8px; height: 8px; border-radius: 999px; background: rgba(255,255,255,.25); }
+    .dot.active { width: 26px; background: var(--blue); }
+
+    .counter {
+      position: fixed;
+      right: 24px;
+      top: 22px;
+      color: var(--soft);
+      font-weight: 800;
+      letter-spacing: .04em;
+      z-index: 50;
+    }
+
+    .footer-note {
+      position: fixed;
+      left: 24px;
+      bottom: 26px;
+      color: rgba(203,213,225,.72);
+      font-size: .86rem;
+      z-index: 40;
+      max-width: 420px;
+    }
+
+    @media (max-width: 860px) {
+      body { overflow: auto; }
+      .deck { height: auto; }
+      .slide { position: relative; min-height: 100vh; padding: 32px 18px 110px; }
+      .two-cols, .cards, .cards.two, .item { grid-template-columns: 1fr; }
+      .portrait { width: 132px; height: 132px; border-radius: 32px; font-size: 3.6rem; }
+      .footer-note { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck" aria-label="Apresentação acadêmica de Adão L. L. Couto">
+    <div class="counter" id="counter">1 / 7</div>
+
+    <section class="slide active">
+      <div class="stage two-cols">
+        <div>
+          <div class="kicker">🩺 Apresentação acadêmica e profissional</div>
+          <h1>Adão L. L. <span>Couto</span></h1>
+          <p class="lead">Médico pediatra, professor universitário e criador de ferramentas digitais para ensino médico, organização clínica e apoio à prática pediátrica.</p>
+          <div class="chips">
+            <span class="chip">Pediatria</span>
+            <span class="chip">Saúde da Criança</span>
+            <span class="chip">Educação Médica</span>
+            <span class="chip">Tecnologia em Saúde</span>
+          </div>
+        </div>
+        <aside class="panel">
+          <div class="portrait">🧬</div>
+          <h3>Perfil profissional</h3>
+          <p>Atuação na interface entre assistência pediátrica, docência médica e desenvolvimento de soluções digitais aplicadas à saúde.</p>
+          <div class="chips">
+            <span class="chip">Itaperuna/RJ</span>
+            <span class="chip">CRM-RJ 52656321</span>
+            <span class="chip">RQE 28864</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="stage">
+        <div>
+          <div class="kicker">🎓 Formação</div>
+          <h2>Trajetória construída entre <span>Medicina</span>, Pediatria e Saúde da Família.</h2>
+          </div>
+        <div class="timeline panel">
+          <div class="item">
+            <div class="year">1998</div>
+            <div>
+              <h3>Graduação em Medicina</h3>
+              <p>Universidade Severino Sombra.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="year">Pós-graduação</div>
+            <div>
+              <h3>Saúde da Família</h3>
+              <p>Pós-graduação lato sensu em Saúde da Família.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="year">Especialização</div>
+            <div>
+              <h3>Pediatria</h3>
+              <p>Especialização/RQE em Pediatria.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="year">Mestrado</div>
+            <div>
+              <h3>Mestrado acadêmico</h3>
+              <p>Mestrado acadêmico.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="stage">
+        <div>
+          <div class="kicker">🩺 Atuação médica</div>
+          <h2>Pediatria com foco em <span>cuidado clínico</span>, urgência e tomada de decisão responsável.</h2>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="icon">👶</div>
+            <h3>Saúde da Criança</h3>
+            <p>Acompanhamento pediátrico, desenvolvimento infantil, imunização, puericultura e raciocínio clínico aplicado.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🚑</div>
+            <h3>Urgência e assistência hospitalar</h3>
+            <p>Experiência em plantões pediátricos e cuidado de crianças em contextos de maior complexidade assistencial.</p>
+          </article>
+          <article class="card">
+            <div class="icon">📊</div>
+            <h3>Decisão baseada em dados</h3>
+            <p>Organização de informações clínicas, interpretação de sinais, balanços, exames e evolução do paciente pediátrico.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="stage two-cols">
+        <div>
+          <div class="kicker">🎓 Docência</div>
+          <h2>Ensino médico voltado ao <span>raciocínio clínico</span>, não à simples memorização.</h2>
+          <p class="lead">Produção de aulas, casos clínicos, avaliações e materiais de apoio para formação médica em Pediatria e Saúde da Criança.</p>
+        </div>
+        <div class="panel">
+          <h3>Eixos didáticos</h3>
+          <div class="chips">
+            <span class="chip">Casos clínicos</span>
+            <span class="chip">Neonatologia</span>
+            <span class="chip">Imunização</span>
+            <span class="chip">Desenvolvimento infantil</span>
+            <span class="chip">Urgências pediátricas</span>
+            <span class="chip">Saúde coletiva</span>
+            <span class="chip">Provas e avaliação</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="stage">
+        <div>
+          <div class="kicker">💻 Tecnologia em saúde</div>
+          <h2>Ferramentas digitais para transformar informação médica em <span>uso prático</span>.</h2>
+        </div>
+        <div class="cards two">
+          <article class="card">
+            <div class="icon">📱</div>
+            <h3>Apps e sistemas clínicos</h3>
+            <p>Desenvolvimento de aplicações em HTML, CSS, JavaScript e Android/WebView para consulta, cálculo e apoio educacional.</p>
+            <div class="chips">
+              <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Android</span>
+            </div>
+          </article>
+          <article class="card">
+            <div class="icon">🧮</div>
+            <h3>Calculadoras e organização clínica</h3>
+            <p>Ferramentas para cálculos pediátricos, análise de dados clínicos e padronização de informações assistenciais.</p>
+            <div class="chips">
+              <span class="chip">Pediatria</span><span class="chip">Educação</span><span class="chip">Apoio clínico</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="stage two-cols">
+        <div>
+          <div class="kicker">📚 Produção acadêmica</div>
+          <h2>Integração entre <span>assistência</span>, ensino e produção de conhecimento.</h2>
+        </div>
+        <div class="panel">
+          <h3>Foco de produção</h3>
+          <p>Materiais didáticos, casos clínicos, questões e recursos digitais voltados ao ensino médico e à prática pediátrica.</p>
+          <div class="chips">
+            <span class="chip">Educação médica</span>
+            <span class="chip">Pediatria</span>
+            <span class="chip">Casos clínicos</span>
+            <span class="chip">Ferramentas digitais</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="stage two-cols">
+        <div>
+          <div class="kicker">🔗 Links</div>
+          <h2>Currículo, projetos e <span>contato</span>.</h2>
+        </div>
+        <div class="panel links">
+          <a class="link-card" href="https://github.com/adaollc" target="_blank" rel="noopener">
+            <span>💻 GitHub</span><small>@adaollc</small>
+          </a>
+          <a class="link-card" href="mailto:adaollc@gmail.com">
+            <span>✉️ E-mail</span><small>adaollc@gmail.com</small>
+          </a>
+          <a class="link-card" href="https://www.instagram.com/adaocouto/" target="_blank" rel="noopener">
+            <span>📷 Instagram</span><small>@adaocouto</small>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer-note">Use ← → ou os botões para navegar.</div>
+  <nav class="nav" aria-label="Navegação da apresentação">
+    <button type="button" onclick="prevSlide()" aria-label="Slide anterior">←</button>
+    <div class="dots" id="dots"></div>
+    <button type="button" onclick="nextSlide()" aria-label="Próximo slide">→</button>
+  </nav>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const dotsEl = document.getElementById('dots');
+    const counter = document.getElementById('counter');
+    let index = 0;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(dot);
+    });
+
+    function render() {
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+      Array.from(document.querySelectorAll('.dot')).forEach((dot, i) => dot.classList.toggle('active', i === index));
+      counter.textContent = `${index + 1} / ${slides.length}`;
+    }
+
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      render();
+    }
+
+    function nextSlide() { goTo(index + 1); }
+    function prevSlide() { goTo(index - 1); }
+
+    window.addEventListener('keydown', (event) => {
+      if (['ArrowRight', 'PageDown', ' '].includes(event.key)) nextSlide();
+      if (['ArrowLeft', 'PageUp'].includes(event.key)) prevSlide();
+      if (event.key === 'Home') goTo(0);
+      if (event.key === 'End') goTo(slides.length - 1);
+    });
+  </script>
+</body>
+</html>
