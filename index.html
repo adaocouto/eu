@@ -1,3 +1,6 @@
+<!-- NomeDoApp = "Sobre mim" -->
+<!-- AndroidVersionName = "1.11.10.11"; VersionName = "1.11.10.11" -->
+<!-- AndroidVersionCode = "262841155"; VersionCode = "262841155"; Timestamp = "2026-10-11T10:28:51-03:00" -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -26,7 +29,8 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html, body { height: 100%; }
+    html, body { min-height: 100%; }
+    html { background-color: #07111f; }
 
     body {
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -37,6 +41,7 @@
         radial-gradient(circle at 75% 92%, rgba(34,197,94,.15), transparent 32%),
         linear-gradient(135deg, var(--bg), var(--bg2));
       overflow: hidden;
+      background-attachment: fixed;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -275,29 +280,93 @@
       .portrait { width: 132px; height: 132px; border-radius: 32px; font-size: 3.6rem; }
       .footer-note { display: none; }
     }
+
+    /* Rodapé padronizado, adaptado ao último slide de apresentação */
+    .links-slide{overflow-y:auto;overscroll-behavior:contain;padding-bottom:110px}
+    .links-slide .stage{margin:auto}
+    .links-slide .link-card small{overflow-wrap:anywhere;text-align:right}
+    .links-slide .site-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .links-slide .site-link{display:flex;align-items:center;justify-content:center;min-height:48px;padding:12px 16px;border:1px solid rgba(148,163,184,.48);border-radius:12px;background:rgba(255,255,255,.075);color:#f8fafc;font-size:.9rem;font-weight:800;text-align:center;text-decoration:none}
+    .links-slide .site-link:hover{background:rgba(56,189,248,.15);border-color:rgba(56,189,248,.7)}
+    .links-slide .legal-disclaimer{margin-top:2px;padding:0;border:1px solid rgba(148,163,184,.40);border-radius:14px;background:rgba(15,23,42,.82);box-shadow:0 8px 22px rgba(0,0,0,.12);color:#cbd5e1;font-size:.76rem;line-height:1.45;text-align:left;overflow:hidden}
+    .links-slide .legal-disclaimer > summary{list-style:none;cursor:pointer;position:relative;padding:11px 38px 11px 13px;color:#f1f5f9;font-size:.78rem;font-weight:700;user-select:none}
+    .links-slide .legal-disclaimer > summary::-webkit-details-marker{display:none}
+    .links-slide .legal-disclaimer > summary::after{content:'＋';position:absolute;right:13px;top:50%;transform:translateY(-50%);color:#94a3b8;font-size:.9rem;font-weight:800}
+    .links-slide .legal-disclaimer[open] > summary::after{content:'−'}
+    .links-slide .legal-disclaimer-content{padding:11px 13px 12px;border-top:1px solid rgba(148,163,184,.28);text-align:justify;overflow-wrap:anywhere;color:#cbd5e1;font-size:.76rem;line-height:1.55;background:rgba(2,6,23,.12)}
+    .links-slide .signature-block{text-align:center;color:#cbd5e1;font-size:14px;line-height:1.5;margin-top:4px}
+    .links-slide .spacer-3lines{height:4.2em}
+    @media(max-width:860px){.links-slide{overflow:visible;min-height:100vh;padding-bottom:125px}}
+    @media(max-width:520px){.links-slide .site-links{grid-template-columns:1fr}}
+
+    /* Seletor bilíngue presente em todos os slides */
+    .slide{overflow-y:auto;overscroll-behavior:contain}
+    .language-switch{position:fixed;top:18px;left:18px;z-index:100;display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding:7px 9px;border:1px solid var(--line);border-radius:999px;background:rgba(15,23,42,.90);backdrop-filter:blur(14px);box-shadow:0 8px 22px rgba(0,0,0,.2)}
+    .language-label{font-size:.76rem;color:var(--muted);font-weight:800;margin-right:2px}
+    .language-switch .lang-button{font-size:.79rem;font-weight:800;padding:7px 10px;border:1px solid rgba(148,163,184,.35);background:rgba(255,255,255,.06);color:#cbd5e1;border-radius:999px;min-height:34px;line-height:1}
+    .language-switch .lang-button.active{background:#38bdf8;color:#07111f;border-color:#38bdf8}
+    .language-switch .lang-button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+    .links-slide .updated-date{font-size:.76rem;color:#cbd5e1;margin-top:6px}
+    @media(max-width:860px){.slide{overflow:visible;padding-top:100px}.language-switch{top:12px;left:12px;right:12px;width:fit-content;max-width:calc(100% - 24px)}}
+    @media(max-width:400px){.language-switch{gap:4px}.language-switch .lang-button{padding:7px 8px;font-size:.74rem}.language-label{font-size:.72rem}}
+
+    /* Correcoes de navegacao e rodape em smartphones: evita sobreposicao de elementos. */
+    @media (max-width: 860px) {
+      /* O contador acompanha o inicio da apresentacao, sem flutuar sobre o conteudo rolado. */
+      .counter {
+        position: absolute;
+        top: 71px;
+        right: 18px;
+        font-size: .9rem;
+        pointer-events: none;
+      }
+      /* No slide de links, os controles ficam DEPOIS do rodape e nunca o encobrem. */
+      body.last-slide-active .nav {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        transform: none;
+        width: max-content;
+        max-width: calc(100% - 24px);
+        margin: 12px auto calc(24px + env(safe-area-inset-bottom, 0px));
+        z-index: 50;
+      }
+      body.last-slide-active .links-slide {
+        padding-bottom: 26px;
+        min-height: 100svh;
+      }
+      body.last-slide-active .links-slide .spacer-3lines {
+        height: 0;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="language-switch" role="group" aria-label="Selecionar idioma" id="languageSwitch">
+    <span class="language-label" id="languageLabel">Idioma:</span>
+    <button type="button" class="lang-button active" id="langPt" onclick="setLanguage('pt')" aria-pressed="true" aria-label="Exibir em português">Português</button>
+    <button type="button" class="lang-button" id="langEn" onclick="setLanguage('en')" aria-pressed="false" aria-label="Exibir em inglês">English</button>
+  </div>
   <main class="deck" aria-label="Apresentação acadêmica de Adão L. L. Couto">
     <div class="counter" id="counter">1 / 7</div>
 
     <section class="slide active">
       <div class="stage two-cols">
         <div>
-          <div class="kicker">🩺 Apresentação acadêmica e profissional</div>
+          <div class="kicker" data-i18n="t1">🩺 Apresentação acadêmica e profissional</div>
           <h1>Adão L. L. <span>Couto</span></h1>
-          <p class="lead">Médico pediatra, professor universitário e criador de ferramentas digitais para ensino médico, organização clínica e apoio à prática pediátrica.</p>
+          <p class="lead" data-i18n="t2">Médico pediatra, professor universitário e criador de ferramentas digitais para ensino médico, organização clínica e apoio à prática pediátrica.</p>
           <div class="chips">
-            <span class="chip">Pediatria</span>
-            <span class="chip">Saúde da Criança</span>
-            <span class="chip">Educação Médica</span>
-            <span class="chip">Tecnologia em Saúde</span>
+            <span class="chip" data-i18n="t3">Pediatria</span>
+            <span class="chip" data-i18n="t4">Saúde da Criança</span>
+            <span class="chip" data-i18n="t5">Educação Médica</span>
+            <span class="chip" data-i18n="t6">Tecnologia em Saúde</span>
           </div>
         </div>
         <aside class="panel">
           <div class="portrait">🧬</div>
-          <h3>Perfil profissional</h3>
-          <p>Atuação na interface entre assistência pediátrica, docência médica e desenvolvimento de soluções digitais aplicadas à saúde.</p>
+          <h3 data-i18n="t7">Perfil profissional</h3>
+          <p data-i18n="t8">Atuação na interface entre assistência pediátrica, docência médica e desenvolvimento de soluções digitais aplicadas à saúde.</p>
           <div class="chips">
             <span class="chip">Itaperuna/RJ</span>
             <span class="chip">CRM-RJ 52656321</span>
@@ -310,36 +379,36 @@
     <section class="slide">
       <div class="stage">
         <div>
-          <div class="kicker">🎓 Formação</div>
-          <h2>Trajetória construída entre <span>Medicina</span>, Pediatria e Saúde da Família.</h2>
+          <div class="kicker" data-i18n="t9">🎓 Formação</div>
+          <h2 data-i18n="t10">Trajetória construída entre <span>Medicina</span>, Pediatria e Saúde da Família.</h2>
           </div>
         <div class="timeline panel">
           <div class="item">
             <div class="year">1998</div>
             <div>
-              <h3>Graduação em Medicina</h3>
-              <p>Universidade Severino Sombra.</p>
+              <h3 data-i18n="t11">Graduação em Medicina</h3>
+              <p data-i18n="t12">Universidade Severino Sombra.</p>
             </div>
           </div>
           <div class="item">
-            <div class="year">Pós-graduação</div>
+            <div class="year" data-i18n="t13">Pós-graduação</div>
             <div>
-              <h3>Saúde da Família</h3>
-              <p>Pós-graduação lato sensu em Saúde da Família.</p>
+              <h3 data-i18n="t14">Saúde da Família</h3>
+              <p data-i18n="t15">Pós-graduação lato sensu em Saúde da Família.</p>
             </div>
           </div>
           <div class="item">
-            <div class="year">Especialização</div>
+            <div class="year" data-i18n="t16">Especialização</div>
             <div>
-              <h3>Pediatria</h3>
-              <p>Especialização/RQE em Pediatria.</p>
+              <h3 data-i18n="t3">Pediatria</h3>
+              <p data-i18n="t17">Especialização/RQE em Pediatria.</p>
             </div>
           </div>
           <div class="item">
-            <div class="year">Mestrado</div>
+            <div class="year" data-i18n="t18">Mestrado</div>
             <div>
-              <h3>Mestrado acadêmico</h3>
-              <p>Mestrado acadêmico.</p>
+              <h3 data-i18n="t19">Mestrado acadêmico</h3>
+              <p data-i18n="t20">Mestrado acadêmico.</p>
             </div>
           </div>
         </div>
@@ -349,24 +418,24 @@
     <section class="slide">
       <div class="stage">
         <div>
-          <div class="kicker">🩺 Atuação médica</div>
-          <h2>Pediatria com foco em <span>cuidado clínico</span>, urgência e tomada de decisão responsável.</h2>
+          <div class="kicker" data-i18n="t21">🩺 Atuação médica</div>
+          <h2 data-i18n="t22">Pediatria com foco em <span>cuidado clínico</span>, urgência e tomada de decisão responsável.</h2>
         </div>
         <div class="cards">
           <article class="card">
             <div class="icon">👶</div>
-            <h3>Saúde da Criança</h3>
-            <p>Acompanhamento pediátrico, desenvolvimento infantil, imunização, puericultura e raciocínio clínico aplicado.</p>
+            <h3 data-i18n="t4">Saúde da Criança</h3>
+            <p data-i18n="t23">Acompanhamento pediátrico, desenvolvimento infantil, imunização, puericultura e raciocínio clínico aplicado.</p>
           </article>
           <article class="card">
             <div class="icon">🚑</div>
-            <h3>Urgência e assistência hospitalar</h3>
-            <p>Experiência em plantões pediátricos e cuidado de crianças em contextos de maior complexidade assistencial.</p>
+            <h3 data-i18n="t24">Urgência e assistência hospitalar</h3>
+            <p data-i18n="t25">Experiência em plantões pediátricos e cuidado de crianças em contextos de maior complexidade assistencial.</p>
           </article>
           <article class="card">
             <div class="icon">📊</div>
-            <h3>Decisão baseada em dados</h3>
-            <p>Organização de informações clínicas, interpretação de sinais, balanços, exames e evolução do paciente pediátrico.</p>
+            <h3 data-i18n="t26">Decisão baseada em dados</h3>
+            <p data-i18n="t27">Organização de informações clínicas, interpretação de sinais, balanços, exames e evolução do paciente pediátrico.</p>
           </article>
         </div>
       </div>
@@ -375,20 +444,20 @@
     <section class="slide">
       <div class="stage two-cols">
         <div>
-          <div class="kicker">🎓 Docência</div>
-          <h2>Ensino médico voltado ao <span>raciocínio clínico</span>, não à simples memorização.</h2>
-          <p class="lead">Produção de aulas, casos clínicos, avaliações e materiais de apoio para formação médica em Pediatria e Saúde da Criança.</p>
+          <div class="kicker" data-i18n="t28">🎓 Docência</div>
+          <h2 data-i18n="t29">Ensino médico voltado ao <span>raciocínio clínico</span>, não à simples memorização.</h2>
+          <p class="lead" data-i18n="t30">Produção de aulas, casos clínicos, avaliações e materiais de apoio para formação médica em Pediatria e Saúde da Criança.</p>
         </div>
         <div class="panel">
-          <h3>Eixos didáticos</h3>
+          <h3 data-i18n="t31">Eixos didáticos</h3>
           <div class="chips">
-            <span class="chip">Casos clínicos</span>
-            <span class="chip">Neonatologia</span>
-            <span class="chip">Imunização</span>
-            <span class="chip">Desenvolvimento infantil</span>
-            <span class="chip">Urgências pediátricas</span>
-            <span class="chip">Saúde coletiva</span>
-            <span class="chip">Provas e avaliação</span>
+            <span class="chip" data-i18n="t32">Casos clínicos</span>
+            <span class="chip" data-i18n="t33">Neonatologia</span>
+            <span class="chip" data-i18n="t34">Imunização</span>
+            <span class="chip" data-i18n="t35">Desenvolvimento infantil</span>
+            <span class="chip" data-i18n="t36">Urgências pediátricas</span>
+            <span class="chip" data-i18n="t37">Saúde coletiva</span>
+            <span class="chip" data-i18n="t38">Provas e avaliação</span>
           </div>
         </div>
       </div>
@@ -397,24 +466,24 @@
     <section class="slide">
       <div class="stage">
         <div>
-          <div class="kicker">💻 Tecnologia em saúde</div>
-          <h2>Ferramentas digitais para transformar informação médica em <span>uso prático</span>.</h2>
+          <div class="kicker" data-i18n="t39">💻 Tecnologia em saúde</div>
+          <h2 data-i18n="t40">Ferramentas digitais para transformar informação médica em <span>uso prático</span>.</h2>
         </div>
         <div class="cards two">
           <article class="card">
             <div class="icon">📱</div>
-            <h3>Apps e sistemas clínicos</h3>
-            <p>Desenvolvimento de aplicações em HTML, CSS, JavaScript e Android/WebView para consulta, cálculo e apoio educacional.</p>
+            <h3 data-i18n="t41">Apps e sistemas clínicos</h3>
+            <p data-i18n="t42">Desenvolvimento de aplicações em HTML, CSS, JavaScript e Android/WebView para consulta, cálculo e apoio educacional.</p>
             <div class="chips">
               <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Android</span>
             </div>
           </article>
           <article class="card">
             <div class="icon">🧮</div>
-            <h3>Calculadoras e organização clínica</h3>
-            <p>Ferramentas para cálculos pediátricos, análise de dados clínicos e padronização de informações assistenciais.</p>
+            <h3 data-i18n="t43">Calculadoras e organização clínica</h3>
+            <p data-i18n="t44">Ferramentas para cálculos pediátricos, análise de dados clínicos e padronização de informações assistenciais.</p>
             <div class="chips">
-              <span class="chip">Pediatria</span><span class="chip">Educação</span><span class="chip">Apoio clínico</span>
+              <span class="chip" data-i18n="t3">Pediatria</span><span class="chip" data-i18n="t45">Educação</span><span class="chip" data-i18n="t46">Apoio clínico</span>
             </div>
           </article>
         </div>
@@ -424,44 +493,59 @@
     <section class="slide">
       <div class="stage two-cols">
         <div>
-          <div class="kicker">📚 Produção acadêmica</div>
-          <h2>Integração entre <span>assistência</span>, ensino e produção de conhecimento.</h2>
+          <div class="kicker" data-i18n="t47">📚 Produção acadêmica</div>
+          <h2 data-i18n="t48">Integração entre <span>assistência</span>, ensino e produção de conhecimento.</h2>
         </div>
         <div class="panel">
-          <h3>Foco de produção</h3>
-          <p>Materiais didáticos, casos clínicos, questões e recursos digitais voltados ao ensino médico e à prática pediátrica.</p>
+          <h3 data-i18n="t49">Foco de produção</h3>
+          <p data-i18n="t50">Materiais didáticos, casos clínicos, questões e recursos digitais voltados ao ensino médico e à prática pediátrica.</p>
           <div class="chips">
-            <span class="chip">Educação médica</span>
-            <span class="chip">Pediatria</span>
-            <span class="chip">Casos clínicos</span>
-            <span class="chip">Ferramentas digitais</span>
+            <span class="chip" data-i18n="t51">Educação médica</span>
+            <span class="chip" data-i18n="t3">Pediatria</span>
+            <span class="chip" data-i18n="t32">Casos clínicos</span>
+            <span class="chip" data-i18n="t52">Ferramentas digitais</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="slide">
+    <section class="slide links-slide">
       <div class="stage two-cols">
         <div>
-          <div class="kicker">🔗 Links</div>
-          <h2>Currículo, projetos e <span>contato</span>.</h2>
+          <div class="kicker" data-i18n="t53">🔗 Links</div>
+          <h2 data-i18n="t54">Currículo, projetos e <span>contato</span>.</h2>
         </div>
         <div class="panel links">
-          <a class="link-card" href="https://github.com/adaocouto" target="_blank" rel="noopener">
-            <span>💻 GitHub</span><small>@adaocouto</small>
+          <a class="link-card" href="https://github.com/adaollc" target="_blank" rel="noopener">
+            <span>💻 GitHub</span><small>@adaollc</small>
           </a>
           <a class="link-card" href="mailto:adaollc@gmail.com">
-            <span>✉️ E-mail</span><small>adaollc@gmail.com</small>
+            <span data-i18n="t55">✉️ E-mail</span><small>adaollc@gmail.com</small>
           </a>
           <a class="link-card" href="https://www.instagram.com/adaocouto/" target="_blank" rel="noopener">
             <span>📷 Instagram</span><small>@adaocouto</small>
           </a>
+    <nav class="site-links" aria-label="Informações e privacidade">
+      <a class="site-link" href="https://adaocouto.github.io/eu/" target="_blank" rel="noopener noreferrer" data-i18n="t56">Sobre mim</a>
+      <a class="site-link" href="https://adaocouto.github.io/pp/" target="_blank" rel="noopener noreferrer" data-i18n="t57">Política de Privacidade</a>
+    </nav>
+
+    <details class="legal-disclaimer legal-disclaimer-collapsible">
+      <summary data-i18n="t58">Aviso Legal e Isenção de Responsabilidade</summary>
+      <div class="legal-disclaimer-content" data-i18n="t59">
+        Este software e todas as informações nele contidas são fornecidos exclusivamente com propósitos educacionais e de auxílio à referência médica. ESTE SISTEMA NÃO SUBSTITUI O JULGAMENTO CLÍNICO INDIVIDUAL, A ANAMNESE E O EXAME FÍSICO. As informações aqui apresentadas não devem ser utilizadas isoladamente para o diagnóstico, conduta ou tratamento de pacientes. A responsabilidade final por qualquer decisão clínica, prescrição ou intervenção é exclusiva do profissional de saúde assistente, devidamente habilitado. Os desenvolvedores não garantem a precisão absoluta de todos os dados e isentam-se de responsabilidade por quaisquer danos diretos, indiretos, materiais ou morais que resultem do uso inadequado, interpretação equivocada ou confiança exclusiva nas informações deste sistema. Pacientes e indivíduos leigos que utilizarem este software devem sempre buscar a orientação de um médico qualificado antes de tomar qualquer decisão sobre sua saúde.
+      </div>
+    </details>
+
+    <div class="signature-block"><strong data-i18n="t60">Desenvolvido por Adão L. L. Couto</strong><br><span class="version-name">1.11.10.11</span><div class="updated-date" data-i18n="updated">Última atualização: 11 de outubro de 2026</div></div>
+
+    <div class="spacer-3lines" aria-hidden="true"></div>
         </div>
       </div>
     </section>
   </main>
 
-  <div class="footer-note">Use ← → ou os botões para navegar.</div>
+  <div class="footer-note" data-i18n="t61">Use ← → ou os botões para navegar.</div>
   <nav class="nav" aria-label="Navegação da apresentação">
     <button type="button" onclick="prevSlide()" aria-label="Slide anterior">←</button>
     <div class="dots" id="dots"></div>
@@ -485,11 +569,15 @@
       slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
       Array.from(document.querySelectorAll('.dot')).forEach((dot, i) => dot.classList.toggle('active', i === index));
       counter.textContent = `${index + 1} / ${slides.length}`;
+      document.body.classList.toggle('last-slide-active', index === slides.length - 1);
     }
 
     function goTo(i) {
       index = (i + slides.length) % slides.length;
       render();
+      /* O scroll do slide anterior nao deve ser herdado pelo proximo slide. */
+      window.scrollTo(0, 0);
+      slides[index].scrollTop = 0;
     }
 
     function nextSlide() { goTo(index + 1); }
@@ -501,6 +589,118 @@
       if (event.key === 'Home') goTo(0);
       if (event.key === 'End') goTo(slides.length - 1);
     });
+
+    // Dicionario bilingue de textos fixos da propria apresentacao.
+    const ENGLISH_TEXT = {
+      "t1": "🩺 Academic and Professional Profile",
+      "t2": "Pediatrician, university professor, and creator of digital tools for medical education, clinical organization, and support for pediatric practice.",
+      "t3": "Pediatrics",
+      "t4": "Child Health",
+      "t5": "Medical Education",
+      "t6": "Health Technology",
+      "t7": "Professional Profile",
+      "t8": "Working at the intersection of pediatric care, medical teaching, and the development of digital solutions for healthcare.",
+      "t9": "🎓 Education",
+      "t10": "A career built across <span>Medicine</span>, Pediatrics, and Family Health.",
+      "t11": "Medical Degree",
+      "t12": "Severino Sombra University.",
+      "t13": "Postgraduate Studies",
+      "t14": "Family Health",
+      "t15": "Lato sensu postgraduate qualification in Family Health.",
+      "t16": "Specialization",
+      "t17": "Pediatric specialization / Brazilian specialist registration (RQE).",
+      "t18": "Master’s Degree",
+      "t19": "Academic master’s degree",
+      "t20": "Academic master’s degree.",
+      "t21": "🩺 Medical Practice",
+      "t22": "Pediatrics focused on <span>clinical care</span>, emergency medicine, and responsible decision-making.",
+      "t23": "Pediatric follow-up, child development, immunization, well-child care, and applied clinical reasoning.",
+      "t24": "Emergency and Hospital Care",
+      "t25": "Experience in pediatric emergency shifts and caring for children in more complex clinical settings.",
+      "t26": "Data-Informed Decision-Making",
+      "t27": "Organization of clinical information, interpretation of signs, fluid balance, tests, and pediatric patient progress.",
+      "t28": "🎓 Teaching",
+      "t29": "Medical education focused on <span>clinical reasoning</span>, rather than rote memorization.",
+      "t30": "Development of lectures, clinical cases, assessments, and supporting materials for medical training in Pediatrics and Child Health.",
+      "t31": "Teaching Areas",
+      "t32": "Clinical Cases",
+      "t33": "Neonatology",
+      "t34": "Immunization",
+      "t35": "Child Development",
+      "t36": "Pediatric Emergencies",
+      "t37": "Public Health",
+      "t38": "Exams and Assessment",
+      "t39": "💻 Health Technology",
+      "t40": "Digital tools that turn medical information into <span>practical applications</span>.",
+      "t41": "Apps and Clinical Systems",
+      "t42": "Development of HTML, CSS, JavaScript, and Android/WebView applications for consultation, calculations, and educational support.",
+      "t43": "Clinical Calculators and Organization",
+      "t44": "Tools for pediatric calculations, clinical data analysis, and standardization of patient care information.",
+      "t45": "Education",
+      "t46": "Clinical Support",
+      "t47": "📚 Academic Work",
+      "t48": "Integrating <span>patient care</span>, teaching, and knowledge creation.",
+      "t49": "Areas of Focus",
+      "t50": "Teaching materials, clinical cases, assessment questions, and digital resources for medical education and pediatric practice.",
+      "t51": "Medical Education",
+      "t52": "Digital Tools",
+      "t53": "🔗 Links",
+      "t54": "Background, projects, and <span>contact</span>.",
+      "t55": "✉️ Email",
+      "t56": "About Me",
+      "t57": "Privacy Policy",
+      "t58": "Legal Notice and Disclaimer",
+      "t59": "This software and all information it contains are provided exclusively for educational purposes and as an aid to medical reference. THIS SYSTEM DOES NOT REPLACE INDIVIDUAL CLINICAL JUDGMENT, MEDICAL HISTORY TAKING, OR PHYSICAL EXAMINATION. The information presented must not be used alone for diagnosing, managing, or treating patients. Final responsibility for any clinical decision, prescription, or intervention lies solely with the appropriately qualified healthcare professional caring for the patient. The developers do not guarantee the absolute accuracy of all information and disclaim liability for any direct, indirect, material, or non-material damages resulting from misuse, misinterpretation, or exclusive reliance on the information provided by this system. Patients and laypersons using this software should always seek advice from a qualified physician before making any health-related decisions.",
+      "t60": "Developed by Adão L. L. Couto",
+      "t61": "Use ← → or the buttons to navigate.",
+      "updated": "Last updated: October 11, 2026"
+};
+    const ORIGINAL_PORTUGUESE = new Map(
+      Array.from(document.querySelectorAll('[data-i18n]'), element => [element, element.innerHTML])
+    );
+    const descriptionMeta = document.querySelector('meta[name="description"]');
+    const originalDescription = descriptionMeta ? descriptionMeta.content : '';
+
+    function setLanguage(lang) {
+      const english = lang === 'en';
+      const locale = english ? 'en' : 'pt-BR';
+      document.documentElement.lang = locale;
+      document.title = english
+        ? 'Adão L. L. Couto | Academic and Professional Profile'
+        : 'Adão L. L. Couto | Apresentação Acadêmica';
+      if (descriptionMeta) descriptionMeta.content = english
+        ? 'Academic and professional profile of Adão L. L. Couto, pediatrician, university professor, and developer of digital tools for medical education.'
+        : originalDescription;
+
+      ORIGINAL_PORTUGUESE.forEach((ptHtml, element) => {
+        const key = element.getAttribute('data-i18n');
+        element.innerHTML = english ? ENGLISH_TEXT[key] : ptHtml;
+      });
+
+      const ptButton = document.getElementById('langPt');
+      const enButton = document.getElementById('langEn');
+      ptButton.classList.toggle('active', !english);
+      enButton.classList.toggle('active', english);
+      ptButton.setAttribute('aria-pressed', String(!english));
+      enButton.setAttribute('aria-pressed', String(english));
+      ptButton.setAttribute('aria-label', english ? 'Show in Portuguese' : 'Exibir em português');
+      enButton.setAttribute('aria-label', english ? 'Show in English' : 'Exibir em inglês');
+      document.getElementById('languageLabel').textContent = english ? 'Language:' : 'Idioma:';
+      document.getElementById('languageSwitch').setAttribute('aria-label', english ? 'Select language' : 'Selecionar idioma');
+      document.querySelector('main.deck').setAttribute('aria-label', english
+        ? 'Academic profile of Adão L. L. Couto'
+        : 'Apresentação acadêmica de Adão L. L. Couto');
+      document.querySelector('.site-links').setAttribute('aria-label', english
+        ? 'Information and privacy' : 'Informações e privacidade');
+      document.querySelector('nav.nav').setAttribute('aria-label', english
+        ? 'Presentation navigation' : 'Navegação da apresentação');
+      document.querySelector('button[onclick="prevSlide()"]').setAttribute('aria-label', english
+        ? 'Previous slide' : 'Slide anterior');
+      document.querySelector('button[onclick="nextSlide()"]').setAttribute('aria-label', english
+        ? 'Next slide' : 'Próximo slide');
+    }
+    setLanguage('pt');
+    render();
   </script>
 </body>
 </html>
