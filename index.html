@@ -108,9 +108,9 @@
     h1 span, h2 span { color: var(--blue); }
 
     h2 {
-      font-size: clamp(2.3rem, 5vw, 5rem);
-      line-height: .92;
-      letter-spacing: -.07em;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.12;
+      letter-spacing: -.035em;
       margin-bottom: 20px;
       max-width: 980px;
     }
@@ -135,12 +135,15 @@
     }
 
     .portrait {
-      width: 176px;
-      height: 176px;
-      border-radius: 42px;
+      width: 96px;
+      height: 96px;
+      border-radius: 24px;
       display: grid;
       place-items: center;
-      font-size: 4.7rem;
+      font-size: 2.15rem;
+      font-weight: 900;
+      letter-spacing: -.03em;
+      color: #07111f;
       background: linear-gradient(135deg, var(--blue), #2563eb 55%, var(--green));
       box-shadow: 0 20px 60px rgba(56,189,248,.28);
       margin-bottom: 24px;
@@ -222,20 +225,23 @@
     .nav {
       position: fixed;
       left: 50%;
-      bottom: 22px;
+      bottom: calc(12px + env(safe-area-inset-bottom, 0px));
       transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr) 48px;
+      width: min(420px, calc(100% - 24px));
+      gap: 8px;
       align-items: center;
-      padding: 10px 12px;
+      padding: 8px;
       border: 1px solid var(--line);
       border-radius: 999px;
-      background: rgba(15,23,42,.72);
+      background: rgba(15,23,42,.94);
       backdrop-filter: blur(14px);
       z-index: 50;
     }
 
     button {
+      min-height: 48px;
       border: none;
       color: var(--text);
       background: rgba(255,255,255,.10);
@@ -248,9 +254,10 @@
 
     button:hover { background: rgba(56,189,248,.18); }
 
-    .dots { display: flex; gap: 7px; padding: 0 4px; }
-    .dot { width: 8px; height: 8px; border-radius: 999px; background: rgba(255,255,255,.25); }
-    .dot.active { width: 26px; background: var(--blue); }
+    .nav button { width: 48px; padding: 0; font-size: 1.1rem; }
+    .slide-select { width: 100%; min-width: 0; min-height: 48px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 999px; background: #0f172a; color: var(--text); color-scheme: dark; font: inherit; font-size: .88rem; font-weight: 700; }
+    .slide-select option { color: #f8fafc; background: #0f172a; }
+    .nav button:focus-visible, .slide-select:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 
     .counter {
       position: fixed;
@@ -277,7 +284,7 @@
       .deck { height: auto; }
       .slide { position: relative; min-height: 100vh; padding: 32px 18px 110px; }
       .two-cols, .cards, .cards.two, .item { grid-template-columns: 1fr; }
-      .portrait { width: 132px; height: 132px; border-radius: 32px; font-size: 3.6rem; }
+      .portrait { width: 80px; height: 80px; border-radius: 20px; font-size: 1.8rem; margin-bottom: 16px; }
       .footer-note { display: none; }
     }
 
@@ -303,41 +310,73 @@
     .slide{overflow-y:auto;overscroll-behavior:contain}
     .language-switch{position:fixed;top:18px;left:18px;z-index:100;display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding:7px 9px;border:1px solid var(--line);border-radius:999px;background:rgba(15,23,42,.90);backdrop-filter:blur(14px);box-shadow:0 8px 22px rgba(0,0,0,.2)}
     .language-label{font-size:.76rem;color:var(--muted);font-weight:800;margin-right:2px}
-    .language-switch .lang-button{font-size:.79rem;font-weight:800;padding:7px 10px;border:1px solid rgba(148,163,184,.35);background:rgba(255,255,255,.06);color:#cbd5e1;border-radius:999px;min-height:34px;line-height:1}
+    .language-switch .lang-button{font-size:.88rem;font-weight:800;padding:7px 10px;border:1px solid rgba(148,163,184,.35);background:rgba(255,255,255,.06);color:#cbd5e1;border-radius:999px;min-height:48px;line-height:1}
     .language-switch .lang-button.active{background:#38bdf8;color:#07111f;border-color:#38bdf8}
     .language-switch .lang-button:focus-visible{outline:2px solid #fff;outline-offset:2px}
     .links-slide .updated-date{font-size:.76rem;color:#cbd5e1;margin-top:6px}
     @media(max-width:860px){.slide{overflow:visible;padding-top:100px}.language-switch{top:12px;left:12px;right:12px;width:fit-content;max-width:calc(100% - 24px)}}
-    @media(max-width:400px){.language-switch{gap:4px}.language-switch .lang-button{padding:7px 8px;font-size:.74rem}.language-label{font-size:.72rem}}
+    @media(max-width:400px){.language-switch{gap:4px}.language-switch .lang-button{padding:8px 10px;font-size:.84rem}.language-label{font-size:.72rem}}
 
-    /* Correcoes de navegacao e rodape em smartphones: evita sobreposicao de elementos. */
+    :root { --top-clearance: 120px; --nav-clearance: 110px; }
+    .slide { padding-top: max(clamp(28px, 5vw, 70px), var(--top-clearance)); padding-bottom: max(clamp(28px, 5vw, 70px), var(--nav-clearance)); }
+    .cover-chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cover-chips .chip { display: flex; align-items: center; justify-content: center; text-align: center; min-width: 0; }
+    @media (max-width: 1100px) { .footer-note { display: none; } }
     @media (max-width: 860px) {
-      /* O contador acompanha o inicio da apresentacao, sem flutuar sobre o conteudo rolado. */
-      .counter {
-        position: absolute;
-        top: 71px;
-        right: 18px;
-        font-size: .9rem;
-        pointer-events: none;
-      }
-      /* No slide de links, os controles ficam DEPOIS do rodape e nunca o encobrem. */
-      body.last-slide-active .nav {
-        position: relative;
-        left: auto;
-        bottom: auto;
-        transform: none;
-        width: max-content;
-        max-width: calc(100% - 24px);
-        margin: 12px auto calc(24px + env(safe-area-inset-bottom, 0px));
-        z-index: 50;
-      }
-      body.last-slide-active .links-slide {
-        padding-bottom: 26px;
-        min-height: 100svh;
-      }
-      body.last-slide-active .links-slide .spacer-3lines {
-        height: 0;
-      }
+      .slide { padding: var(--top-clearance) 18px var(--nav-clearance); }
+      .stage { gap: 20px; }
+      .panel { padding: 18px; }
+      .cards { gap: 14px; }
+      .card { padding: 20px; min-height: 0; }
+      .timeline { gap: 10px; }
+      .item { padding: 14px 16px; gap: 10px; }
+      .counter { position: absolute; top: calc(var(--top-clearance) - 30px); right: 18px; font-size: .9rem; pointer-events: none; }
+      .links-slide .link-card { flex-direction: column; align-items: flex-start; gap: 5px; padding: 14px 16px; }
+      .links-slide .link-card small { text-align: left; font-size: .9rem; }
+      body.last-slide-active .links-slide { padding-bottom: var(--nav-clearance); min-height: 100svh; }
+      body.last-slide-active .links-slide .spacer-3lines { height: 0; }
+    }
+    @media (max-width: 360px) {
+      .nav { width: calc(100% - 8px); gap: 4px; padding: 4px; }
+      .slide-select { font-size: .84rem; padding: 8px 6px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .slide { animation: none; }
+      .link-card { transition: none; }
+      .link-card:hover { transform: none; }
+    }
+    @page { size: A4; margin: 16mm; }
+    @media print {
+      :root { --text: #142033; --muted: #334155; --soft: #475569; --blue: #1d4ed8; --line: #cbd5e1; }
+      html, body { height: auto; min-height: 0; overflow: visible; background: #fff; color: #142033; }
+      .deck { height: auto; width: auto; }
+      .language-switch, .nav, .counter, .footer-note { display: none; }
+      .slide, .slide.active, body.last-slide-active .links-slide { position: static; display: block; height: auto; min-height: 0; overflow: visible; padding: 0; animation: none; break-after: page; page-break-after: always; }
+      .slide:last-of-type { break-after: auto; page-break-after: auto; }
+      .stage, .links-slide .stage { display: grid; grid-template-columns: 1fr; width: 100%; margin: 0; gap: 16px; }
+      h1 { font-size: 2.8rem; line-height: 1; margin-bottom: 16px; }
+      h2 { font-size: 2rem; line-height: 1.15; margin-bottom: 14px; }
+      h3 { font-size: 1.05rem; }
+      p, li { font-size: .9rem; line-height: 1.45; }
+      .lead { font-size: 1.05rem; }
+      .panel, .card, .item { padding: 14px; background: #f8fafc; border-color: #cbd5e1; box-shadow: none; backdrop-filter: none; }
+      .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+      .cards.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .card { min-height: 0; }
+      .item { grid-template-columns: 140px minmax(0, 1fr); gap: 12px; }
+      .year { font-size: .9rem; }
+      .portrait { width: 64px; height: 64px; font-size: 1.5rem; margin-bottom: 12px; }
+      .chips { gap: 6px; margin-top: 12px; }
+      .chip, .kicker { color: #334155; background: #f1f5f9; border-color: #cbd5e1; }
+      .chip { font-size: .8rem; padding: 6px 8px; }
+      .kicker { font-size: .85rem; padding: 6px 10px; margin-bottom: 10px; }
+      .icon { font-size: 1.4rem; margin-bottom: 8px; }
+      .link-card, .links-slide .site-link { color: #142033; background: #f8fafc; border-color: #cbd5e1; padding: 12px; box-shadow: none; }
+      .links-slide .link-card small { color: #475569; }
+      .links-slide .legal-disclaimer, .links-slide .legal-disclaimer-content { color: #334155; background: #f8fafc; border-color: #cbd5e1; box-shadow: none; }
+      .links-slide .legal-disclaimer > summary { color: #142033; }
+      .links-slide .signature-block, .links-slide .updated-date { color: #475569; }
+      .links-slide .spacer-3lines { height: 0; }
     }
   </style>
 </head>
@@ -356,7 +395,7 @@
           <div class="kicker" data-i18n="t1">🩺 Apresentação acadêmica e profissional</div>
           <h1>Adão L. L. <span>Couto</span></h1>
           <p class="lead" data-i18n="t2">Médico pediatra, professor universitário e criador de ferramentas digitais para ensino médico, organização clínica e apoio à prática pediátrica.</p>
-          <div class="chips">
+          <div class="chips cover-chips">
             <span class="chip" data-i18n="t3">Pediatria</span>
             <span class="chip" data-i18n="t4">Saúde da Criança</span>
             <span class="chip" data-i18n="t5">Educação Médica</span>
@@ -364,7 +403,7 @@
           </div>
         </div>
         <aside class="panel">
-          <div class="portrait">🧬</div>
+          <div class="portrait" aria-hidden="true">AC</div>
           <h3 data-i18n="t7">Perfil profissional</h3>
           <p data-i18n="t8">Atuação na interface entre assistência pediátrica, docência médica e desenvolvimento de soluções digitais aplicadas à saúde.</p>
           <div class="chips">
@@ -526,7 +565,7 @@
             <span>📷 Instagram</span><small>@adaocouto</small>
           </a>
     <nav class="site-links" aria-label="Informações e privacidade">
-      <a class="site-link" href="https://adaocouto.github.io/eu/" target="_blank" rel="noopener noreferrer" data-i18n="t56">Sobre mim</a>
+      <a class="site-link" href="https://adaocouto.github.io/apps/" target="_blank" rel="noopener noreferrer" data-i18n="t56">Meus aplicativos</a>
       <a class="site-link" href="https://adaocouto.github.io/pp/" target="_blank" rel="noopener noreferrer" data-i18n="t57">Política de Privacidade</a>
     </nav>
 
@@ -548,26 +587,25 @@
   <div class="footer-note" data-i18n="t61">Use ← → ou os botões para navegar.</div>
   <nav class="nav" aria-label="Navegação da apresentação">
     <button type="button" onclick="prevSlide()" aria-label="Slide anterior">←</button>
-    <div class="dots" id="dots"></div>
+    <select class="slide-select" id="slideSelect" aria-label="Selecionar seção"></select>
     <button type="button" onclick="nextSlide()" aria-label="Próximo slide">→</button>
   </nav>
 
   <script>
     const slides = Array.from(document.querySelectorAll('.slide'));
-    const dotsEl = document.getElementById('dots');
+    const sectionSelect = document.getElementById('slideSelect');
+    const SLIDE_LABELS = {
+      pt: ['Apresentação', 'Formação', 'Atuação', 'Docência', 'Tecnologia', 'Produção acadêmica', 'Contato'],
+      en: ['Overview', 'Education', 'Medical practice', 'Teaching', 'Technology', 'Academic work', 'Contact']
+    };
     const counter = document.getElementById('counter');
     let index = 0;
 
-    slides.forEach((_, i) => {
-      const dot = document.createElement('div');
-      dot.className = 'dot' + (i === 0 ? ' active' : '');
-      dot.addEventListener('click', () => goTo(i));
-      dotsEl.appendChild(dot);
-    });
+    sectionSelect.addEventListener('change', () => goTo(Number(sectionSelect.value)));
 
     function render() {
       slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
-      Array.from(document.querySelectorAll('.dot')).forEach((dot, i) => dot.classList.toggle('active', i === index));
+      sectionSelect.value = String(index);
       counter.textContent = `${index + 1} / ${slides.length}`;
       document.body.classList.toggle('last-slide-active', index === slides.length - 1);
     }
@@ -584,10 +622,18 @@
     function prevSlide() { goTo(index - 1); }
 
     window.addEventListener('keydown', (event) => {
-      if (['ArrowRight', 'PageDown', ' '].includes(event.key)) nextSlide();
-      if (['ArrowLeft', 'PageUp'].includes(event.key)) prevSlide();
-      if (event.key === 'Home') goTo(0);
-      if (event.key === 'End') goTo(slides.length - 1);
+      if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey || event.isComposing) return;
+      const target = event.target instanceof Element ? event.target : null;
+      if (target?.closest('input, select, textarea, summary, [contenteditable]')) return;
+      if (event.key === ' ' && target?.closest('button, a')) return;
+      let destination;
+      if (['ArrowRight', 'PageDown', ' '].includes(event.key)) destination = index + 1;
+      else if (['ArrowLeft', 'PageUp'].includes(event.key)) destination = index - 1;
+      else if (event.key === 'Home') destination = 0;
+      else if (event.key === 'End') destination = slides.length - 1;
+      else return;
+      event.preventDefault();
+      goTo(destination);
     });
 
     // Dicionario bilingue de textos fixos da propria apresentacao.
@@ -647,7 +693,7 @@
       "t53": "🔗 Links",
       "t54": "Background, projects, and <span>contact</span>.",
       "t55": "✉️ Email",
-      "t56": "About Me",
+      "t56": "My applications",
       "t57": "Privacy Policy",
       "t58": "Legal Notice and Disclaimer",
       "t59": "This software and all information it contains are provided exclusively for educational purposes and as an aid to medical reference. THIS SYSTEM DOES NOT REPLACE INDIVIDUAL CLINICAL JUDGMENT, MEDICAL HISTORY TAKING, OR PHYSICAL EXAMINATION. The information presented must not be used alone for diagnosing, managing, or treating patients. Final responsibility for any clinical decision, prescription, or intervention lies solely with the appropriately qualified healthcare professional caring for the patient. The developers do not guarantee the absolute accuracy of all information and disclaim liability for any direct, indirect, material, or non-material damages resulting from misuse, misinterpretation, or exclusive reliance on the information provided by this system. Patients and laypersons using this software should always seek advice from a qualified physician before making any health-related decisions.",
@@ -698,7 +744,45 @@
         ? 'Previous slide' : 'Slide anterior');
       document.querySelector('button[onclick="nextSlide()"]').setAttribute('aria-label', english
         ? 'Next slide' : 'Próximo slide');
+      const labels = SLIDE_LABELS[english ? 'en' : 'pt'];
+      sectionSelect.replaceChildren(...labels.map((label, i) => {
+        const option = document.createElement('option');
+        option.value = String(i);
+        option.textContent = label;
+        return option;
+      }));
+      sectionSelect.value = String(index);
+      sectionSelect.setAttribute('aria-label', english ? 'Select section' : 'Selecionar seção');
+      updateControlsClearance();
     }
+    function updateControlsClearance() {
+      if (window.matchMedia('print').matches) return;
+      const languageBox = document.getElementById('languageSwitch');
+      const navigation = document.querySelector('nav.nav');
+      const mobile = window.matchMedia('(max-width: 860px)').matches;
+      const top = languageBox.getBoundingClientRect().bottom + (mobile ? 44 : 20);
+      const bottom = navigation.getBoundingClientRect().height + (parseFloat(getComputedStyle(navigation).bottom) || 0) + 24;
+      document.documentElement.style.setProperty('--top-clearance', `${Math.ceil(top)}px`);
+      document.documentElement.style.setProperty('--nav-clearance', `${Math.ceil(bottom)}px`);
+    }
+    window.addEventListener('resize', updateControlsClearance);
+    if ('ResizeObserver' in window) {
+      const controlObserver = new ResizeObserver(updateControlsClearance);
+      controlObserver.observe(document.getElementById('languageSwitch'));
+      controlObserver.observe(document.querySelector('nav.nav'));
+    }
+    const disclaimer = document.querySelector('.legal-disclaimer');
+    let printDisclaimerState = null;
+    window.addEventListener('beforeprint', () => {
+      if (printDisclaimerState !== null) return;
+      printDisclaimerState = disclaimer.open;
+      disclaimer.open = true;
+    });
+    window.addEventListener('afterprint', () => {
+      if (printDisclaimerState !== null) disclaimer.open = printDisclaimerState;
+      printDisclaimerState = null;
+      updateControlsClearance();
+    });
     setLanguage('pt');
     render();
   </script>
