@@ -1,15 +1,17 @@
+<!DOCTYPE html>
 <!-- NomeDoApp = "Sobre mim" -->
-<!-- AndroidVersionName = "1.014.11.01"; VersionName = "1.014.11.01" -->
+<!-- AndroidVersionName = "1.013.10.27"; VersionName = "1.013.10.27" -->
 <!-- AndroidVersionCode = "263000851"; VersionCode = "263000851"; Timestamp = "2026-10-27T08:51:16-03:00" -->
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adão L. L. Couto | Apresentação Acadêmica</title>
-  <meta name="description" content="Apresentação acadêmica e profissional de Adão L. L. Couto, médico pediatra, professor universitário e desenvolvedor de ferramentas digitais para educação médica." />
-  <meta name="author" content="Adão L. L. Couto" />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Adão L. L. Couto | Currículo e perfil profissional</title>
+<meta content="Currículo e perfil profissional de Adão L. L. Couto, médico pediatra e mestre em Ciências da Saúde. Experiência clínica, docência médica, publicações e tecnologia em saúde." name="description"/>
+<meta content="Adão L. L. Couto" name="author"/>
+<style>
     :root {
       --bg: #07111f;
       --bg2: #0f172a;
@@ -378,225 +380,93 @@
       .links-slide .signature-block, .links-slide .updated-date { color: #475569; }
       .links-slide .spacer-3lines { height: 0; }
     }
-  </style>
+  
+/* Conteúdo curricular integrado: preserva identidade visual e navegação. */
+.work-place {font-size:.94rem; color:var(--soft); font-style:italic; margin-bottom:4px;}
+.past-experience .item {grid-template-columns:130px minmax(0,1fr);}
+.past-experience .item p {font-size:1.02rem; line-height:1.42;}
+.academic-works {display:grid; gap:10px;}
+.academic-works h3:not(:first-child) {margin-top:12px;}
+.bibliography {overflow-wrap:anywhere; font-size:.98rem;}
+.bibliography-list {display:grid;gap:11px;padding-left:22px;}
+.bibliography-list li {font-size:.95rem;line-height:1.48;overflow-wrap:anywhere;}
+.bibliography-list strong {color:var(--text);}
+.small-explainer {font-size:.9rem;line-height:1.5;color:var(--soft);}
+@media (max-width:860px) {.past-experience .item {grid-template-columns:1fr;}.academic-works {gap:12px;}}
+@media print {.bibliography-list strong {color:#142033;}.small-explainer,.work-place{color:#475569;}.academic-works h3:not(:first-child){margin-top:10px;}}
+</style>
 </head>
 <body>
-  <div class="language-switch" role="group" aria-label="Selecionar idioma" id="languageSwitch">
-    <span class="language-label" id="languageLabel">Idioma:</span>
-    <button type="button" class="lang-button active" id="langPt" onclick="setLanguage('pt')" aria-pressed="true" aria-label="Exibir em português">Português</button>
-    <button type="button" class="lang-button" id="langEn" onclick="setLanguage('en')" aria-pressed="false" aria-label="Exibir em inglês">English</button>
-  </div>
-  <main class="deck" aria-label="Apresentação acadêmica de Adão L. L. Couto">
-    <div class="counter" id="counter">1 / 7</div>
-
-    <section class="slide active">
-      <div class="stage two-cols">
-        <div>
-          <div class="kicker" data-i18n="t1">🩺 Apresentação acadêmica e profissional</div>
-          <h1>Adão L. L. <span>Couto</span></h1>
-          <p class="lead" data-i18n="t2">Médico pediatra, professor universitário e criador de ferramentas digitais para ensino médico, organização clínica e apoio à prática pediátrica.</p>
-          <div class="chips cover-chips">
-            <span class="chip" data-i18n="t3">Pediatria</span>
-            <span class="chip" data-i18n="t4">Saúde da Criança</span>
-            <span class="chip" data-i18n="t5">Educação Médica</span>
-            <span class="chip" data-i18n="t6">Tecnologia em Saúde</span>
-          </div>
-        </div>
-        <aside class="panel">
-          <div class="portrait" aria-hidden="true">AC</div>
-          <h3 data-i18n="t7">Perfil profissional</h3>
-          <p data-i18n="t8">Atuação na interface entre assistência pediátrica, docência médica e desenvolvimento de soluções digitais aplicadas à saúde.</p>
-          <div class="chips">
-            <span class="chip">Itaperuna/RJ</span>
-            <span class="chip">CRM-RJ 52656321</span>
-            <span class="chip">RQE 28864</span>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div class="stage">
-        <div>
-          <div class="kicker" data-i18n="t9">🎓 Formação</div>
-          <h2 data-i18n="t10">Trajetória construída entre <span>Medicina</span>, Pediatria e Saúde da Família.</h2>
-          </div>
-        <div class="timeline panel">
-          <div class="item">
-            <div class="year">1998</div>
-            <div>
-              <h3 data-i18n="t11">Graduação em Medicina</h3>
-              <p data-i18n="t12">Universidade Severino Sombra.</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="year" data-i18n="t13">Pós-graduação</div>
-            <div>
-              <h3 data-i18n="t14">Saúde da Família</h3>
-              <p data-i18n="t15">Pós-graduação lato sensu em Saúde da Família.</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="year" data-i18n="t16">Especialização</div>
-            <div>
-              <h3 data-i18n="t3">Pediatria</h3>
-              <p data-i18n="t17">Especialização/RQE em Pediatria.</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="year" data-i18n="t18">Mestrado</div>
-            <div>
-              <h3 data-i18n="t19">Mestrado acadêmico</h3>
-              <p data-i18n="t20">Mestrado acadêmico.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div class="stage">
-        <div>
-          <div class="kicker" data-i18n="t21">🩺 Atuação médica</div>
-          <h2 data-i18n="t22">Pediatria com foco em <span>cuidado clínico</span>, urgência e tomada de decisão responsável.</h2>
-        </div>
-        <div class="cards">
-          <article class="card">
-            <div class="icon">👶</div>
-            <h3 data-i18n="t4">Saúde da Criança</h3>
-            <p data-i18n="t23">Acompanhamento pediátrico, desenvolvimento infantil, imunização, puericultura e raciocínio clínico aplicado.</p>
-          </article>
-          <article class="card">
-            <div class="icon">🚑</div>
-            <h3 data-i18n="t24">Urgência e assistência hospitalar</h3>
-            <p data-i18n="t25">Experiência em plantões pediátricos e cuidado de crianças em contextos de maior complexidade assistencial.</p>
-          </article>
-          <article class="card">
-            <div class="icon">📊</div>
-            <h3 data-i18n="t26">Decisão baseada em dados</h3>
-            <p data-i18n="t27">Organização de informações clínicas, interpretação de sinais, balanços, exames e evolução do paciente pediátrico.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div class="stage two-cols">
-        <div>
-          <div class="kicker" data-i18n="t28">🎓 Docência</div>
-          <h2 data-i18n="t29">Ensino médico voltado ao <span>raciocínio clínico</span>, não à simples memorização.</h2>
-          <p class="lead" data-i18n="t30">Produção de aulas, casos clínicos, avaliações e materiais de apoio para formação médica em Pediatria e Saúde da Criança.</p>
-        </div>
-        <div class="panel">
-          <h3 data-i18n="t31">Eixos didáticos</h3>
-          <div class="chips">
-            <span class="chip" data-i18n="t32">Casos clínicos</span>
-            <span class="chip" data-i18n="t33">Neonatologia</span>
-            <span class="chip" data-i18n="t34">Imunização</span>
-            <span class="chip" data-i18n="t35">Desenvolvimento infantil</span>
-            <span class="chip" data-i18n="t36">Urgências pediátricas</span>
-            <span class="chip" data-i18n="t37">Saúde coletiva</span>
-            <span class="chip" data-i18n="t38">Provas e avaliação</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div class="stage">
-        <div>
-          <div class="kicker" data-i18n="t39">💻 Tecnologia em saúde</div>
-          <h2 data-i18n="t40">Ferramentas digitais para transformar informação médica em <span>uso prático</span>.</h2>
-        </div>
-        <div class="cards two">
-          <article class="card">
-            <div class="icon">📱</div>
-            <h3 data-i18n="t41">Apps e sistemas clínicos</h3>
-            <p data-i18n="t42">Desenvolvimento de aplicações em HTML, CSS, JavaScript e Android/WebView para consulta, cálculo e apoio educacional.</p>
-            <div class="chips">
-              <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Android</span>
-            </div>
-          </article>
-          <article class="card">
-            <div class="icon">🧮</div>
-            <h3 data-i18n="t43">Calculadoras e organização clínica</h3>
-            <p data-i18n="t44">Ferramentas para cálculos pediátricos, análise de dados clínicos e padronização de informações assistenciais.</p>
-            <div class="chips">
-              <span class="chip" data-i18n="t3">Pediatria</span><span class="chip" data-i18n="t45">Educação</span><span class="chip" data-i18n="t46">Apoio clínico</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div class="stage two-cols">
-        <div>
-          <div class="kicker" data-i18n="t47">📚 Produção acadêmica</div>
-          <h2 data-i18n="t48">Integração entre <span>assistência</span>, ensino e produção de conhecimento.</h2>
-        </div>
-        <div class="panel">
-          <h3 data-i18n="t49">Foco de produção</h3>
-          <p data-i18n="t50">Materiais didáticos, casos clínicos, questões e recursos digitais voltados ao ensino médico e à prática pediátrica.</p>
-          <div class="chips">
-            <span class="chip" data-i18n="t51">Educação médica</span>
-            <span class="chip" data-i18n="t3">Pediatria</span>
-            <span class="chip" data-i18n="t32">Casos clínicos</span>
-            <span class="chip" data-i18n="t52">Ferramentas digitais</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide links-slide">
-      <div class="stage two-cols">
-        <div>
-          <div class="kicker" data-i18n="t53">🔗 Links</div>
-          <h2 data-i18n="t54">Currículo, projetos e <span>contato</span>.</h2>
-        </div>
-        <div class="panel links">
-          <a class="link-card" href="https://github.com/adaollc" target="_blank" rel="noopener">
-            <span>💻 GitHub</span><small>@adaollc</small>
-          </a>
-          <a class="link-card" href="mailto:adaollc@gmail.com">
-            <span data-i18n="t55">✉️ E-mail</span><small>adaollc@gmail.com</small>
-          </a>
-          <a class="link-card" href="https://www.instagram.com/adaocouto/" target="_blank" rel="noopener">
-            <span>📷 Instagram</span><small>@adaocouto</small>
-          </a>
-    <nav class="site-links" aria-label="Informações e privacidade">
-      <a class="site-link" href="https://adaocouto.github.io/apps/" target="_blank" rel="noopener noreferrer" data-i18n="t56">Meus aplicativos</a>
-      <a class="site-link" href="https://adaocouto.github.io/pp/" target="_blank" rel="noopener noreferrer" data-i18n="t57">Política de Privacidade</a>
-    </nav>
-
-    <details class="legal-disclaimer legal-disclaimer-collapsible">
-      <summary data-i18n="t58">Aviso Legal e Isenção de Responsabilidade</summary>
-      <div class="legal-disclaimer-content" data-i18n="t59">
+<div aria-label="Selecionar idioma" class="language-switch" id="languageSwitch" role="group">
+<span class="language-label" id="languageLabel">Idioma:</span>
+<button aria-label="Exibir em português" aria-pressed="true" class="lang-button active" id="langPt" onclick="setLanguage('pt')" type="button">Português</button>
+<button aria-label="Exibir em inglês" aria-pressed="false" class="lang-button" id="langEn" onclick="setLanguage('en')" type="button">English</button>
+</div>
+<main aria-label="Currículo e perfil profissional de Adão L. L. Couto" class="deck">
+<div class="counter" id="counter">1 / 9</div>
+<section class="slide active">
+<div class="stage two-cols">
+<div>
+<div class="kicker" data-i18n="t100">🩺 Perfil acadêmico e profissional</div>
+<h1>Adão L. L. <span>Couto</span></h1>
+<p class="lead" data-i18n="t101">Médico pediatra e mestre em Ciências da Saúde, com experiência em terapia intensiva pediátrica e neonatal, assistência hospitalar, docência médica e desenvolvimento de ferramentas digitais aplicadas à saúde.</p>
+<div class="chips cover-chips"><span class="chip" data-i18n="t102">Pediatria</span><span class="chip" data-i18n="t103">Terapia intensiva</span><span class="chip" data-i18n="t104">Produção acadêmica</span><span class="chip" data-i18n="t105">Tecnologia em saúde</span></div>
+</div>
+<aside class="panel"><div aria-hidden="true" class="portrait">AC</div>
+<h3>Adão Luiz Lopes Couto</h3><p data-i18n="t106">Atuação médica em Campos dos Goytacazes e Macaé (RJ). Experiência em ensino universitário e produção científica.</p>
+<div class="chips"><span class="chip">Itaperuna/RJ</span><span class="chip">CRM/RJ 52.65632-1</span><span class="chip">CRM/ES 10656</span><span class="chip">CRM/MG 59193</span><span class="chip">RQE 28864</span></div>
+</aside>
+</div>
+</section>
+<section class="slide"><div class="stage"><div><div class="kicker" data-i18n="t107">🎓 Formação acadêmica</div><h2 data-i18n="t108">Da graduação em <span>Medicina</span> ao mestrado em Ciências da Saúde.</h2></div><div class="timeline panel"><div class="item"><div class="year"><span data-i18n="t109">1998</span></div><div><h3>Universidade Severino Sombra — Vassouras/RJ</h3><p class="work-place" data-i18n="t110">Graduação em Medicina.</p><p data-i18n="t111">Concluída em 1998.</p></div></div><div class="item"><div class="year"><span data-i18n="t112">2000</span></div><div><h3>Faculdade de Medicina de Campos — Campos dos Goytacazes/RJ</h3><p class="work-place" data-i18n="t113">Residência Médica.</p><p data-i18n="t114">Pediatria e Puericultura.</p></div></div><div class="item"><div class="year"><span data-i18n="t115">2000</span></div><div><h3>Faculdade de Medicina de Campos — Campos dos Goytacazes/RJ</h3><p class="work-place" data-i18n="t116">Pós-graduação lato sensu.</p><p data-i18n="t117">Saúde da Família.</p></div></div><div class="item"><div class="year"><span data-i18n="t118">2020</span></div><div><h3>Faculdade de Saúde Santa Casa BH / IEP — Belo Horizonte/MG</h3><p class="work-place" data-i18n="t119">Mestrado Acadêmico em Ciências da Saúde — Medicina e Biomedicina.</p><p data-i18n="t120">Dissertação: “Fatores associados à mortalidade infantil: análise das ocorrências no período de 2007 a 2017, na cidade de Itaperuna, Rio de Janeiro”. Defesa aprovada em 01/05/2020.</p></div></div></div></div></section>
+<section class="slide"><div class="stage"><div><div class="kicker" data-i18n="t121">🩺 Atuação profissional atual</div><h2 data-i18n="t122">Assistência pediátrica e <span>terapia intensiva</span> em serviços hospitalares.</h2></div><div class="timeline panel"><div class="item"><div class="year"><span data-i18n="t123">Desde mai/2012</span></div><div><h3>Hospital da UNIMED Campos — Campos dos Goytacazes/RJ</h3><p class="work-place" data-i18n="t124">UTI Neonatal e Pediátrica.</p><p data-i18n="t125">Médico Pediatra; 24 horas semanais.</p></div></div><div class="item"><div class="year"><span data-i18n="t126">Desde mar/2026</span></div><div><h3>Hospital Público de Macaé (HPM) — Macaé/RJ</h3><p class="work-place" data-i18n="t127">Médico Pediatra</p></div></div></div></div></section><section class="slide"><div class="stage"><div><div class="kicker" data-i18n="t130">🏥 Experiência anterior selecionada</div><h2 data-i18n="t131">Trajetória em hospitais, assistência neonatal e <span>ensino médico</span>.</h2></div><div class="timeline panel past-experience"><div class="item"><div class="year"><span data-i18n="t132">2012–2026</span></div><div><h3>UNIG — Universidade Iguaçu, Campus V — Itaperuna/RJ</h3><p class="work-place" data-i18n="t133">Janeiro de 2012 a julho de 2026.</p><p data-i18n="t134">Docente da disciplina de Saúde da Criança (Pediatria I).</p></div></div><div class="item"><div class="year"><span data-i18n="t135">2024–2026</span></div><div><h3>Hospital Estadual de São José do Calçado (HESJC) — ES</h3><p class="work-place" data-i18n="t136">Dezembro de 2024 a janeiro de 2026.</p><p data-i18n="t137">Médico Pediatra, assistência ao recém-nascido em sala de parto.</p></div></div><div class="item"><div class="year"><span data-i18n="t138">2011–2013</span></div><div><h3>Hospital Infantil Francisco de Assis — Cachoeiro de Itapemirim/ES</h3><p class="work-place" data-i18n="t139">Janeiro de 2011 a março de 2013.</p><p data-i18n="t140">Médico Pediatra da UTI Neonatal e Pediátrica.</p></div></div><div class="item"><div class="year"><span data-i18n="t141">2001–2010</span></div><div><h3>Hospital São José do Avaí — Itaperuna/RJ</h3><p class="work-place" data-i18n="t142">Março de 2001 a abril de 2010.</p><p data-i18n="t143">Médico Pediatra da UTI Neonatal e Pediátrica.</p></div></div><div class="item"><div class="year"><span data-i18n="t144">2001–2003</span></div><div><h3>Hospital Escola Álvaro Alvim — Campos dos Goytacazes/RJ</h3><p class="work-place" data-i18n="t145">2001 / 2002–2003.</p><p data-i18n="t146">Médico Pediatra no pronto atendimento pediátrico.</p></div></div><div class="item"><div class="year"><span data-i18n="t147">2003–2006</span></div><div><h3>Hospital dos Plantadores de Cana — Campos dos Goytacazes/RJ</h3><p class="work-place" data-i18n="t148">Janeiro de 2003 a março de 2006.</p><p data-i18n="t149">Médico Pediatra da U.I. Neonatal.</p></div></div><div class="item"><div class="year"><span data-i18n="t150">2011–2012</span></div><div><h3>UPA — Unidade de Pronto Atendimento — Itaperuna/RJ</h3><p class="work-place" data-i18n="t151">Julho de 2011 a maio de 2012.</p><p data-i18n="t152">Médico Pediatra no pronto atendimento pediátrico.</p></div></div><div class="item"><div class="year"><span data-i18n="t153">2001–2002</span></div><div><h3>Prefeitura Municipal de Laje do Muriaé — RJ</h3><p class="work-place" data-i18n="t154">Julho de 2001 a maio de 2002.</p><p data-i18n="t155">Médico em ambulatório de pediatria.</p></div></div></div></div></section>
+<section class="slide"><div class="stage two-cols"><div><div class="kicker" data-i18n="t156">🎓 Docência médica</div><h2 data-i18n="t157">Experiência universitária em <span>Saúde da Criança</span>.</h2><p class="lead" data-i18n="t158">De janeiro de 2012 a julho de 2026, atuou na Universidade Iguaçu (UNIG), Campus V, em Itaperuna/RJ, como docente da disciplina Saúde da Criança (Pediatria I).</p></div><div class="panel"><h3 data-i18n="t160">Áreas de ensino</h3><div class="chips"><span class="chip" data-i18n="t161">Casos clínicos</span><span class="chip" data-i18n="t162">Neonatologia</span><span class="chip" data-i18n="t163">Imunização</span><span class="chip" data-i18n="t164">Desenvolvimento infantil</span><span class="chip" data-i18n="t165">Urgências pediátricas</span><span class="chip" data-i18n="t166">Saúde coletiva</span><span class="chip" data-i18n="t167">Avaliação médica</span></div></div></div></section>
+<section class="slide"><div class="stage"><div><div class="kicker" data-i18n="t168">💻 Tecnologia em saúde</div><h2 data-i18n="t169">Desenvolvimento de recursos digitais para <span>prática médica</span> e ensino.</h2></div><div class="cards two"><article class="card"><div aria-hidden="true" class="icon">📱</div><h3 data-i18n="t170">Aplicações e sistemas clínicos</h3><p data-i18n="t171">Desenvolvimento de programas médicos e aplicações em HTML, CSS, JavaScript e Android/WebView para consulta, cálculos e apoio educacional.</p><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Android</span></div></article><article class="card"><div aria-hidden="true" class="icon">🧮</div><h3 data-i18n="t172">Apoio à assistência e à educação</h3><p data-i18n="t173">Ferramentas para cálculos pediátricos, organização de dados clínicos e engenharia de prompts aplicada à saúde e à inteligência artificial.</p><div class="chips"><span class="chip" data-i18n="t174">Pediatria</span><span class="chip" data-i18n="t175">Educação médica</span><span class="chip" data-i18n="t176">Apoio clínico</span></div></article></div></div></section>
+<section class="slide"><div class="stage"><div><div class="kicker" data-i18n="t177">📚 Produção bibliográfica</div><h2 data-i18n="t178">Capítulo de livro e resumos em <span>anais científicos</span>.</h2></div><div class="panel academic-works"><h3 data-i18n="t179">Capítulo de livro — 2025</h3><p class="bibliography" data-i18n="t180">ORIOLI, Maria Aparecida Machado; COUTO, Adão Luiz Lopes; MEDINA, Raí dos Santos. <em>Ecos da negligência: a sífilis congênita no contexto atual.</em> In: CABRAL, Hildeliza Lacerda Tinoco Boechat; BEDIM, Denise Tinoco Novaes; BEDIM, Juçara Gonçalves Lima (org.). <em>Interfaces da Medicina: Campus V celebra 56 anos de excelência acadêmica da Universidade Iguaçu – UNIG.</em> Belo Horizonte: Editora Expert, 2025. p. 281–300. ISBN 978-65-6006-188-0.</p><h3 data-i18n="t181">Resumos publicados — XVI Simpósio Interdisciplinar da FASAP, 2024</h3><ul class="bibliography-list"><li><strong>ARRUDA, Enoghalliton de Abreu et al.</strong> <span data-i18n="t182">Equipes saúde da família e a prevenção e triagem do câncer de pele.</span> 2024, p. 53.</li><li><strong>ARRUDA, Enoghalliton de Abreu et al.</strong> <span data-i18n="t183">O manejo do impetigo bolhoso e do impetigo crostoso em crianças até oito anos.</span> 2024, p. 52.</li><li><strong>ANDRADE, Marco Antonio Gomes et al.</strong> <span data-i18n="t184">Cuidados e tratamentos de lesões por pressão infectadas por Pseudomonas.</span> 2024, p. 51.</li><li><strong>TINOCO, Maria Irene Rocha Bastos et al.</strong> <span data-i18n="t185">Assistência e tratamento da dermatite ocre.</span> 2024, p. 50.</li><li><strong>RODRIGUES, Maristhela Alves et al.</strong> <span data-i18n="t186">Candidúria: reflexões teóricas e conceituais à presença de leveduras no EAS.</span> 2024, p. 49.</li><li><strong>ARRUDA, Jéssica de Abreu et al.</strong> <span data-i18n="t187">A relevância e a aplicabilidade do protocolo SPIKES na comunicação do diagnóstico de melanoma.</span> 2024, p. 48.</li></ul><p class="small-explainer" data-i18n="t188">Os resumos acima constam dos Anais do XVI Simpósio Interdisciplinar da FASAP (2024).</p></div></div></section><section class="slide"><div class="stage"><div><div class="kicker" data-i18n="t189">🧭 Competências e atualização</div><h2 data-i18n="t190">Áreas de atuação e <span>formação complementar</span>.</h2></div><div class="cards two"><article class="card"><h3 data-i18n="t191">Competências e áreas de atuação</h3><div class="chips"><span class="chip" data-i18n="t192">Terapia intensiva neonatal</span><span class="chip" data-i18n="t193">Terapia intensiva pediátrica</span><span class="chip" data-i18n="t194">Pediatria hospitalar</span><span class="chip" data-i18n="t195">Saúde da Família</span><span class="chip" data-i18n="t196">Ensino e supervisão médica</span><span class="chip" data-i18n="t197">Produção acadêmica</span><span class="chip" data-i18n="t198">Desenvolvimento de programas médicos</span><span class="chip" data-i18n="t199">Engenharia de prompts em saúde</span></div></article><article class="card"><h3 data-i18n="t200">Formação complementar</h3><p data-i18n="t201">Cursos de Reanimação Neonatal pela Sociedade Brasileira de Pediatria, realizados em Campos dos Goytacazes/RJ, em 1999 e 2002.</p><p data-i18n="t202">Participação em congressos, jornadas e apresentações de temas livres na área médica.</p></article></div></div></section>
+<section class="slide links-slide">
+<div class="stage two-cols">
+<div>
+<div class="kicker" data-i18n="t53">🔗 Links</div>
+<h2 data-i18n="t54">Projetos e <span>contato</span>.</h2>
+</div>
+<div class="panel links">
+<a class="link-card" href="https://github.com/adaollc" rel="noopener" target="_blank">
+<span>💻 GitHub</span><small>@adaollc</small>
+</a>
+<a class="link-card" href="mailto:adaollc@gmail.com">
+<span data-i18n="t55">✉️ E-mail</span><small>adaollc@gmail.com</small>
+</a>
+<a class="link-card" href="https://www.instagram.com/adaocouto/" rel="noopener" target="_blank">
+<span>📷 Instagram</span><small>@adaocouto</small>
+</a>
+<nav aria-label="Informações e privacidade" class="site-links">
+<a class="site-link" data-i18n="t56" href="https://adaocouto.github.io/apps/" rel="noopener noreferrer" target="_blank">Meus aplicativos</a>
+<a class="site-link" data-i18n="t57" href="https://adaocouto.github.io/pp/" rel="noopener noreferrer" target="_blank">Política de Privacidade</a>
+</nav>
+<details class="legal-disclaimer legal-disclaimer-collapsible">
+<summary data-i18n="t58">Aviso Legal e Isenção de Responsabilidade</summary>
+<div class="legal-disclaimer-content" data-i18n="t59">
         Este software e todas as informações nele contidas são fornecidos exclusivamente com propósitos educacionais e de auxílio à referência médica. ESTE SISTEMA NÃO SUBSTITUI O JULGAMENTO CLÍNICO INDIVIDUAL, A ANAMNESE E O EXAME FÍSICO. As informações aqui apresentadas não devem ser utilizadas isoladamente para o diagnóstico, conduta ou tratamento de pacientes. A responsabilidade final por qualquer decisão clínica, prescrição ou intervenção é exclusiva do profissional de saúde assistente, devidamente habilitado. Os desenvolvedores não garantem a precisão absoluta de todos os dados e isentam-se de responsabilidade por quaisquer danos diretos, indiretos, materiais ou morais que resultem do uso inadequado, interpretação equivocada ou confiança exclusiva nas informações deste sistema. Pacientes e indivíduos leigos que utilizarem este software devem sempre buscar a orientação de um médico qualificado antes de tomar qualquer decisão sobre sua saúde.
       </div>
-    </details>
-
-    <div class="signature-block"><strong data-i18n="t60">Desenvolvido por Adão L. L. Couto</strong><br><span class="version-name">1.014.11.01</span><div class="updated-date" data-i18n="updated">Última atualização: 30 de outubro de 2026</div></div>
-
-    <div class="spacer-3lines" aria-hidden="true"></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <div class="footer-note" data-i18n="t61">Use ← → ou os botões para navegar.</div>
-  <nav class="nav" aria-label="Navegação da apresentação">
-    <button type="button" onclick="prevSlide()" aria-label="Slide anterior">←</button>
-    <select class="slide-select" id="slideSelect" aria-label="Selecionar seção"></select>
-    <button type="button" onclick="nextSlide()" aria-label="Próximo slide">→</button>
-  </nav>
-
-  <script>
+</details>
+<div class="signature-block"><strong data-i18n="t60">Desenvolvido por Adão L. L. Couto</strong><br/><span class="version-name">1.013.10.27</span><div class="updated-date" data-i18n="updated">Última atualização: 5 de novembro de 2026</div></div>
+<div aria-hidden="true" class="spacer-3lines"></div>
+</div>
+</div>
+</section>
+</main>
+<div class="footer-note" data-i18n="t61">Use ← → ou os botões para navegar.</div>
+<nav aria-label="Navegação da apresentação" class="nav">
+<button aria-label="Slide anterior" onclick="prevSlide()" type="button">←</button>
+<select aria-label="Selecionar seção" class="slide-select" id="slideSelect"></select>
+<button aria-label="Próximo slide" onclick="nextSlide()" type="button">→</button>
+</nav>
+<script>
     const slides = Array.from(document.querySelectorAll('.slide'));
     const sectionSelect = document.getElementById('slideSelect');
     const SLIDE_LABELS = {
-      pt: ['Apresentação', 'Formação', 'Atuação', 'Docência', 'Tecnologia', 'Produção acadêmica', 'Contato'],
-      en: ['Overview', 'Education', 'Medical practice', 'Teaching', 'Technology', 'Academic work', 'Contact']
+      pt: ['Apresentação', 'Formação', 'Atuação atual', 'Experiência anterior', 'Docência', 'Tecnologia', 'Produção acadêmica', 'Competências', 'Contato'],
+      en: ['Overview', 'Education', 'Current practice', 'Previous experience', 'Teaching', 'Technology', 'Publications', 'Expertise', 'Contact']
     };
     const counter = document.getElementById('counter');
     let index = 0;
@@ -691,7 +561,7 @@
       "t51": "Medical Education",
       "t52": "Digital Tools",
       "t53": "🔗 Links",
-      "t54": "Background, projects, and <span>contact</span>.",
+      "t54": "Projects and <span>contact</span>.",
       "t55": "✉️ Email",
       "t56": "My applications",
       "t57": "Privacy Policy",
@@ -699,8 +569,111 @@
       "t59": "This software and all information it contains are provided exclusively for educational purposes and as an aid to medical reference. THIS SYSTEM DOES NOT REPLACE INDIVIDUAL CLINICAL JUDGMENT, MEDICAL HISTORY TAKING, OR PHYSICAL EXAMINATION. The information presented must not be used alone for diagnosing, managing, or treating patients. Final responsibility for any clinical decision, prescription, or intervention lies solely with the appropriately qualified healthcare professional caring for the patient. The developers do not guarantee the absolute accuracy of all information and disclaim liability for any direct, indirect, material, or non-material damages resulting from misuse, misinterpretation, or exclusive reliance on the information provided by this system. Patients and laypersons using this software should always seek advice from a qualified physician before making any health-related decisions.",
       "t60": "Developed by Adão L. L. Couto",
       "t61": "Use ← → or the buttons to navigate.",
-      "updated": "Last updated: October 30, 2026"
+      "updated": "Last updated: November 5, 2026"
 };
+    Object.assign(ENGLISH_TEXT, {
+      "t100": "🩺 Academic and professional profile",
+      "t101": "Pediatrician and Master of Health Sciences, with experience in pediatric and neonatal intensive care, hospital medicine, medical teaching, and development of digital tools for healthcare.",
+      "t102": "Pediatrics",
+      "t103": "Intensive care",
+      "t104": "Academic work",
+      "t105": "Health technology",
+      "t106": "Clinical practice in Campos dos Goytacazes and Macaé (RJ). Experience in university teaching and academic publishing.",
+      "t107": "🎓 Academic education",
+      "t108": "From a degree in <span>Medicine</span> to a master’s in Health Sciences.",
+      "t109": "1998",
+      "t110": "Medical degree.",
+      "t111": "Completed in 1998.",
+      "t112": "2000",
+      "t113": "Medical residency.",
+      "t114": "Pediatrics and Child Health.",
+      "t115": "2000",
+      "t116": "Postgraduate specialization.",
+      "t117": "Family Health.",
+      "t118": "2020",
+      "t119": "Academic master’s degree in Health Sciences — Medicine and Biomedicine.",
+      "t120": "Dissertation: “Factors associated with infant mortality: an analysis of cases from 2007 to 2017 in Itaperuna, Rio de Janeiro.” Successfully defended on May 1, 2020.",
+      "t121": "🩺 Current clinical practice",
+      "t122": "Hospital pediatrics and <span>intensive care</span> clinical practice.",
+      "t123": "Since May 2012",
+      "t124": "Neonatal and Pediatric Intensive Care Units.",
+      "t125": "Pediatrician; 24 hours per week.",
+      "t126": "Since Mar 2026",
+      "t127": "Pediatrician",
+      "t130": "🏥 Selected previous experience",
+      "t131": "A career in hospitals, neonatal care, and <span>medical education</span>.",
+      "t132": "2012–2026",
+      "t133": "January 2012 to July 2026.",
+      "t134": "Faculty member teaching Child Health (Pediatrics I).",
+      "t135": "2024–2026",
+      "t136": "December 2024 to January 2026.",
+      "t137": "Pediatrician providing neonatal care in the delivery room.",
+      "t138": "2011–2013",
+      "t139": "January 2011 to March 2013.",
+      "t140": "Pediatrician in Neonatal and Pediatric Intensive Care Units.",
+      "t141": "2001–2010",
+      "t142": "March 2001 to April 2010.",
+      "t143": "Pediatrician in Neonatal and Pediatric Intensive Care Units.",
+      "t144": "2001–2003",
+      "t145": "2001 / 2002–2003.",
+      "t146": "Pediatrician in the pediatric emergency department.",
+      "t147": "2003–2006",
+      "t148": "January 2003 to March 2006.",
+      "t149": "Pediatrician in the neonatal U.I.",
+      "t150": "2011–2012",
+      "t151": "July 2011 to May 2012.",
+      "t152": "Pediatrician in pediatric urgent care.",
+      "t153": "2001–2002",
+      "t154": "July 2001 to May 2002.",
+      "t155": "Outpatient pediatric physician.",
+      "t156": "🎓 Medical teaching",
+      "t157": "University teaching experience in <span>Child Health</span>.",
+      "t158": "From January 2012 to July 2026, taught Child Health (Pediatrics I) at Universidade Iguaçu (UNIG), Campus V, in Itaperuna, Rio de Janeiro.",
+      "t160": "Teaching areas",
+      "t161": "Clinical cases",
+      "t162": "Neonatology",
+      "t163": "Immunization",
+      "t164": "Child development",
+      "t165": "Pediatric emergencies",
+      "t166": "Public health",
+      "t167": "Medical assessment",
+      "t168": "💻 Health technology",
+      "t169": "Developing digital tools for <span>clinical practice</span> and teaching.",
+      "t170": "Clinical applications and systems",
+      "t171": "Development of medical software and HTML, CSS, JavaScript, and Android/WebView applications for reference, calculations, and educational support.",
+      "t172": "Supporting clinical care and education",
+      "t173": "Tools for pediatric calculations, clinical data organization, and prompt engineering applied to healthcare and artificial intelligence.",
+      "t174": "Pediatrics",
+      "t175": "Medical education",
+      "t176": "Clinical support",
+      "t177": "📚 Publications",
+      "t178": "Book chapter and abstracts in <span>conference proceedings</span>.",
+      "t179": "Book chapter — 2025",
+      "t180": "ORIOLI, Maria Aparecida Machado; COUTO, Adão Luiz Lopes; MEDINA, Raí dos Santos. <em>Ecos da negligência: a sífilis congênita no contexto atual</em> [Echoes of neglect: congenital syphilis in the current context]. In: CABRAL, Hildeliza Lacerda Tinoco Boechat; BEDIM, Denise Tinoco Novaes; BEDIM, Juçara Gonçalves Lima (eds.). <em>Interfaces da Medicina: Campus V celebra 56 anos de excelência acadêmica da Universidade Iguaçu – UNIG.</em> Belo Horizonte: Editora Expert, 2025. pp. 281–300. ISBN 978-65-6006-188-0.",
+      "t181": "Published abstracts — 16th FASAP Interdisciplinary Symposium, 2024",
+      "t182": "Family health teams and skin cancer prevention and screening.",
+      "t183": "Management of bullous and non-bullous impetigo in children aged eight or younger.",
+      "t184": "Care and treatment of pressure injuries infected with Pseudomonas.",
+      "t185": "Care and treatment of stasis dermatitis.",
+      "t186": "Candiduria: theoretical and conceptual reflections on yeast in urinalysis.",
+      "t187": "Relevance and applicability of the SPIKES protocol in communicating a melanoma diagnosis.",
+      "t188": "The abstracts above appear in the proceedings of the 16th FASAP Interdisciplinary Symposium (2024).",
+      "t189": "🧭 Areas of practice and training",
+      "t190": "Areas of practice and <span>continuing education</span>.",
+      "t191": "Areas of practice and expertise",
+      "t192": "Neonatal intensive care",
+      "t193": "Pediatric intensive care",
+      "t194": "Hospital pediatrics",
+      "t195": "Family Health",
+      "t196": "Medical teaching and supervision",
+      "t197": "Academic publishing",
+      "t198": "Medical software development",
+      "t199": "Healthcare prompt engineering",
+      "t200": "Continuing education",
+      "t201": "Neonatal Resuscitation courses by the Brazilian Society of Pediatrics, held in Campos dos Goytacazes/RJ, in 1999 and 2002.",
+      "t202": "Participation in medical conferences, professional meetings, and scientific presentations."
+});
+
     const ORIGINAL_PORTUGUESE = new Map(
       Array.from(document.querySelectorAll('[data-i18n]'), element => [element, element.innerHTML])
     );
@@ -712,10 +685,10 @@
       const locale = english ? 'en' : 'pt-BR';
       document.documentElement.lang = locale;
       document.title = english
-        ? 'Adão L. L. Couto | Academic and Professional Profile'
-        : 'Adão L. L. Couto | Apresentação Acadêmica';
+        ? 'Adão L. L. Couto | Résumé and Professional Profile'
+        : 'Adão L. L. Couto | Currículo e perfil profissional';
       if (descriptionMeta) descriptionMeta.content = english
-        ? 'Academic and professional profile of Adão L. L. Couto, pediatrician, university professor, and developer of digital tools for medical education.'
+        ? 'Résumé and professional profile of Adão L. L. Couto, pediatrician and Master of Health Sciences, with clinical experience, past teaching roles, publications, and healthcare technology.'
         : originalDescription;
 
       ORIGINAL_PORTUGUESE.forEach((ptHtml, element) => {
@@ -734,8 +707,8 @@
       document.getElementById('languageLabel').textContent = english ? 'Language:' : 'Idioma:';
       document.getElementById('languageSwitch').setAttribute('aria-label', english ? 'Select language' : 'Selecionar idioma');
       document.querySelector('main.deck').setAttribute('aria-label', english
-        ? 'Academic profile of Adão L. L. Couto'
-        : 'Apresentação acadêmica de Adão L. L. Couto');
+        ? 'Résumé and professional profile of Adão L. L. Couto'
+        : 'Currículo e perfil profissional de Adão L. L. Couto');
       document.querySelector('.site-links').setAttribute('aria-label', english
         ? 'Information and privacy' : 'Informações e privacidade');
       document.querySelector('nav.nav').setAttribute('aria-label', english
